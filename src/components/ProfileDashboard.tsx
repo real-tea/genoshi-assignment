@@ -6,7 +6,7 @@ const DashboardPage: React.FC = () => {
   const userProfile = {
     name: 'Akash Singh',
     email: 'akash.singh@example.com',
-    profilePhoto: 'path/to/profile/photo.jpg',
+    profilePhoto: 'photo.jpg',
     subscription: 'Pro Plan', // Replace with user's actual subscription
   };
 
