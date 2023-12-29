@@ -81,7 +81,9 @@ const ProfileDashboard: React.FC = () => {
         {/* Action Buttons */}
         <div className="mb-8">
           <button className="bg-blue-500 text-white px-4 py-2 rounded mr-4">
+            <Link to = "/create-new-graph">
             Create New Graph
+            </Link>            
           </button>
           <button className="bg-green-500 text-white px-4 py-2 rounded mr-4">
             Share Graphs
