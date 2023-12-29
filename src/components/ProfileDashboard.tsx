@@ -1,27 +1,31 @@
-// src/components/DashboardPage.tsx
+// src/components/ProfileDashboard.tsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const DashboardPage: React.FC = () => {
-  // Mock data for user profile and graphs
-  const userProfile = {
+const ProfileDashboard: React.FC = () => {
+  // Simulated user data
+  const userData = {
     name: 'Akash Singh',
-    email: 'akash.singh@example.com',
-    profilePhoto: 'photo.jpg',
-    subscription: 'Pro Plan', // Replace with user's actual subscription
+    email: 'Akash.singh@example.com',
+    profilePhoto: '/photo.jpg',
+    bio: 'Software Engineer by trade.',
+    subscriptionPlan: 'Pro Plan',
+    subscriptionStatus: 'Active',
+    graphsCreated: 10,
+    graphsShared: 5,
+    papersCollected: 8,
+    recentActivity: [
+      { type: 'graph', title: 'Graph Title 1', date: '2023-01-01' },
+      { type: 'collection', title: 'Collection Title 1', date: '2023-01-02' },
+      // Add more recent activities as needed
+    ],
   };
 
-  const recentGraphs = [
-    { id: 1, name: 'Graph 1', date: '2023-01-01' },
-    { id: 2, name: 'Graph 2', date: '2023-01-02' },
-    { id: 3, name: 'Graph 3', date: '2023-01-03' },
-    // Add more mock data as needed
-  ];
-
-  const favoritePapers = [
-    { id: 1, title: 'Paper 1', author: 'Author 1' },
-    { id: 2, title: 'Paper 2', author: 'Author 2' },
-    { id: 3, title: 'Paper 3', author: 'Author 3' },
-    // Add more mock data as needed
+  // Simulated saved graphs data
+  const savedGraphs = [
+    { title: 'Graph 1', dateCreated: '2023-01-01', thumbnail: 'url_to_thumbnail.jpg' },
+    { title: 'Graph 2', dateCreated: '2023-01-02', thumbnail: 'url_to_thumbnail.jpg' },
+    // Add more saved graphs as needed
   ];
 
   return (
@@ -29,63 +33,95 @@ const DashboardPage: React.FC = () => {
       <div className="container mx-auto pt-16">
         <h2 className="text-4xl font-bold mb-8">Profile Dashboard</h2>
 
-        {/* User Profile Section */}
-        <div className="flex items-center space-x-4 mb-8">
-          {/* Profile Photo */}
-          <img
-            src={userProfile.profilePhoto}
-            alt="Profile"
-            className="w-16 h-16 rounded-full object-cover"
-          />
-
-          {/* User Information */}
+        {/* User Profile Details */}
+        <div className="flex items-center mb-8">
+          <img src={userData.profilePhoto} alt="Profile" className="w-12 h-12 rounded-full mr-4" />
           <div>
-            <h3 className="text-2xl font-bold">{userProfile.name}</h3>
-            <p>{userProfile.email}</p>
-            <p>Subscription: {userProfile.subscription}</p>
+            <h3 className="text-xl font-bold">{userData.name}</h3>
+            <p>{userData.email}</p>
+            <p>{userData.bio}</p>
           </div>
         </div>
 
-        {/* Account Summary Section */}
+        {/* Account Details */}
         <div className="mb-8">
-          <h3 className="text-2xl font-bold mb-4">Account Summary</h3>
-          {/* Display account metrics, subscription details, etc. */}
+          <p>
+            <span className="font-bold">Subscription Plan:</span> {userData.subscriptionPlan}
+          </p>
+          <p>
+            <span className="font-bold">Subscription Status:</span> {userData.subscriptionStatus}
+          </p>
         </div>
 
-        {/* My Graphs Section */}
+        {/* Usage Metrics */}
         <div className="mb-8">
-          <h3 className="text-2xl font-bold mb-4">My Graphs</h3>
-          {/* Display a list of recently made graphs */}
+          <p>
+            <span className="font-bold">Graphs Created:</span> {userData.graphsCreated}
+          </p>
+          <p>
+            <span className="font-bold">Graphs Shared:</span> {userData.graphsShared}
+          </p>
+          <p>
+            <span className="font-bold">Papers Collected:</span> {userData.papersCollected}
+          </p>
+        </div>
+
+        {/* Recent Activity Feed */}
+        <div className="mb-8">
+          <h3 className="text-xl font-bold mb-4">Recent Activity</h3>
           <ul>
-            {recentGraphs.map((graph) => (
-              <li
-                key={graph.id}
-                className="border rounded p-2 mb-2 transition duration-300 ease-in-out transform hover:scale-105"
-              >
-                {graph.name} - Created on {graph.date}
+            {userData.recentActivity.map((activity, index) => (
+              <li key={index}>
+                {activity.type === 'graph' ? 'Created graph' : 'Added to collection'} "{activity.title}" on {activity.date}
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Favorite Papers Section */}
+        {/* Action Buttons */}
+        <div className="mb-8">
+          <button className="bg-blue-500 text-white px-4 py-2 rounded mr-4">
+            Create New Graph
+          </button>
+          <button className="bg-green-500 text-white px-4 py-2 rounded mr-4">
+            Share Graphs
+          </button>
+          <button className="bg-yellow-500 text-white px-4 py-2 rounded">
+            Upload Papers
+          </button>
+        </div>
+
+        {/* List of Saved Graphs */}
+        <div className="mb-8">
+          <h3 className="text-xl font-bold mb-4">Saved Graphs</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {savedGraphs.map((graph, index) => (
+              <div key={index} className="border rounded p-4">
+                <img src={graph.thumbnail} alt={`Graph ${index + 1}`} className="w-full h-32 object-cover mb-2" />
+                <p className="text-lg font-bold mb-2">{graph.title}</p>
+                <p className="text-gray-400">{graph.dateCreated}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Link to Favourites and Collections pages */}
         <div>
-          <h3 className="text-2xl font-bold mb-4">Favorite Papers</h3>
-          {/* Display a list of favorite papers and paper collections */}
-          <ul>
-            {favoritePapers.map((paper) => (
-              <li
-                key={paper.id}
-                className="border rounded p-2 mb-2 transition duration-300 ease-in-out transform hover:scale-105"
-              >
-                {paper.title} by {paper.author}
-              </li>
-            ))}
-          </ul>
+          <p className="text-xl font-bold">Explore More:</p>
+          <p>
+            <Link to="/favourites" className="text-blue-500 hover:underline">
+              Favourites
+            </Link>
+          </p>
+          <p>
+            <Link to="/collections" className="text-blue-500 hover:underline">
+              Collections
+            </Link>
+          </p>
         </div>
       </div>
     </div>
   );
 };
 
-export default DashboardPage;
+export default ProfileDashboard;
