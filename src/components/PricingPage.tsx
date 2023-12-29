@@ -1,5 +1,11 @@
 // src/components/PricingPage.tsx
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+
+
+
+
 
 const PricingPage: React.FC = () => {
   const [selectedPlan, setSelectedPlan] = useState<string>('');
@@ -73,6 +79,8 @@ const PricingPage: React.FC = () => {
               >
                 {selectedPlan === plan.id ? 'Selected' : 'Select Plan'}
               </button>
+
+              
             </div>
           ))}
         </div>
