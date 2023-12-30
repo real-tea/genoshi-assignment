@@ -33,27 +33,21 @@ const ProfileDashboard: React.FC = () => {
       <div className="container mx-auto pt-16">
         <h2 className="text-4xl font-bold mb-8">Profile Dashboard</h2>
 
-        {/* User Profile Details */}
-        <div className="flex items-center mb-8">
-          <img src={userData.profilePhoto} alt="Profile" className="w-12 h-12 rounded-full mr-4" />
+        <div className="flex items-center mb-14">
+          <img src={userData.profilePhoto} alt="Profile" className="w-12 h-12 rounded-full mr-6" />
           <div>
             <h3 className="text-xl font-bold">{userData.name}</h3>
             <p>{userData.email}</p>
             <p>{userData.bio}</p>
-            <Link to="/account-settings" className="text-blue-500 hover:underline">
-              Edit Profile
-            </Link>
           </div>
-        </div>
-
-        {/* Account Details */}
-        <div className="mb-8">
-          <p>
-            <span className="font-bold">Subscription Plan:</span> {userData.subscriptionPlan}
-          </p>
-          <p>
-            <span className="font-bold">Subscription Status:</span> {userData.subscriptionStatus}
-          </p>
+          <div className="ml-10">
+            <p>
+              <span className="font-bold">Subscription Plan:</span> {userData.subscriptionPlan}
+            </p>
+            <p>
+              <span className="font-bold">Subscription Status:</span> {userData.subscriptionStatus}
+            </p>
+          </div>
         </div>
 
         {/* Usage Metrics */}

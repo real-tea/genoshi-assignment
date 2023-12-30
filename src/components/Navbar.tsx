@@ -33,29 +33,29 @@ const Navbar: React.FC = () => {
 
       {/* Navbar content */}
       <div className="container mx-auto flex justify-between items-center relative z-10">
-        <h1 className="text-white text-2xl font-bold">Genoshi.io</h1>
+        <h1 className="text-white text-2xl font-bold"> Genoshi.<span className="text-purple-500">io</span></h1>
         <div className="flex space-x-4">
           <div
             className="relative group"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <span className="text-white cursor-pointer group-hover:text-gray-300"><Link to = "/">Dashboard</Link></span>
+            <span className="text-purple-500 cursor-pointer group-hover:text-purple-500"><Link to = "/">Dashboard</Link></span>
             {showLinks && (
               <div className="absolute top-full left-0 mt-2 bg-gray-800 text-white py-2 px-4 rounded shadow">
-                <Link to="/account-settings" className="block hover:text-gray-300 mb-2">
+                <Link to="/account-settings" className="block hover:text-purple-500 mb-2">
                   Account Settings
                 </Link>
-                <Link to="/create-new-graph" className="block hover:text-gray-300 mb-2">
+                <Link to="/create-new-graph" className="block hover:text-purple-500 mb-2">
                   Create New Graph
                 </Link>
-                <Link to="/graph-details" className="block hover:text-gray-300">
+                <Link to="/graph-details" className="block hover:text-purple-500">
                   Graph Details
                 </Link>
               </div>
             )}
           </div>
-          <Link to="/pricing" className="text-white hover:text-gray-300">
+          <Link to="/pricing" className="text-purple-500 hover:text-gray-300">
             Pricing
           </Link>
         </div>

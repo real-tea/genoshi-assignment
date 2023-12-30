@@ -7,7 +7,11 @@ import GraphDetails from './components/GraphDetails';
 import AccountSettings from './components/AccountSettings';
 
 function App() {
+
+  
   return (
+
+
     <Router>
     <div className="bg-gray-900">
       <Navbar />
