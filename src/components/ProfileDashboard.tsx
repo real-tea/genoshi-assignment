@@ -40,6 +40,9 @@ const ProfileDashboard: React.FC = () => {
             <h3 className="text-xl font-bold">{userData.name}</h3>
             <p>{userData.email}</p>
             <p>{userData.bio}</p>
+            <Link to="/account-settings" className="text-blue-500 hover:underline">
+              Edit Profile
+            </Link>
           </div>
         </div>
 

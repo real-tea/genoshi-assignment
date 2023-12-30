@@ -30,7 +30,7 @@ const GraphDetails: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white font-sans">
+    <div className="min-h-screen bg-gray-900 text-white font-inter">
       <div className="container mx-auto pt-16">
         <h2 className="text-4xl font-bold mb-8">Graph Details</h2>
 
